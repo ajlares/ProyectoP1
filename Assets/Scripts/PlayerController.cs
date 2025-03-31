@@ -8,6 +8,7 @@ public class PlayerController : NetworkBehaviour
     private float Vertical;
     public float speed;
     public GameObject bombPrefab;
+    public GameObject messagePrefab;
     public Animator anim;
     private bool canuseBomb;
 
@@ -20,6 +21,7 @@ public class PlayerController : NetworkBehaviour
         canuseBomb = true;
         rb = gameObject.GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
+        ComandSendMesage("entro: "+ this.name);
     }
     void Update()
     {
@@ -85,6 +87,21 @@ public class PlayerController : NetworkBehaviour
     {
         BM.StartBomb();
     }
+
+    [Command] // esto es para servidor
+    private void ComandSendMesage(string msj)
+    {
+        GameObject Message = Instantiate(messagePrefab);
+        NetworkServer.Spawn(Message);
+        clientSendMesage(msj, Message.GetComponent<messageCreate>());
+    }
+
+    [ClientRpc] // esto es para clientes
+    private void clientSendMesage(string msj,messageCreate message)
+    {
+        message.instalize(msj,NetColor);
+    }
+
     IEnumerator bombDelay()
     {
         yield return new WaitForSeconds(4);
