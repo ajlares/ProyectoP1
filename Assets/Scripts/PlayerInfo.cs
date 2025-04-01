@@ -36,6 +36,7 @@ public class PlayerInfo : MonoBehaviour
             color = Color.white;
             break;
         }
+        
     }
     void Start()
     {

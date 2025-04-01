@@ -8,7 +8,6 @@ public class messageCreate : NetworkBehaviour
     public float Speed =0.05f;
     public float random;
     public float lifeTime = 4;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Destroy(this,lifeTime);

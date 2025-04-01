@@ -5,6 +5,8 @@ public class BombManager : NetworkBehaviour
 {
     public ParticleSystem CharcheSistem, ExploiteSistem;
      public BoxCollider box;
+
+     [Command(requiresAuthority = false)]
     public void StartBomb()
     {
         StartCoroutine(BombSystem());

@@ -52,14 +52,23 @@ public class PlayerController : NetworkBehaviour
         }
     }
     #region server
-    [Command]
+
+        [Command]
     private void CommandSetColor(Color newColor)
     {
         NetColor = newColor;
     }
+
     private void setColor(Color oldColor, Color newColor)
     {
-        BaseMath.SetColor("MainColor",newColor);
+        if(BaseMath !=  null)
+        {
+            BaseMath.SetColor("MainColor",newColor);
+        }
+        else
+        {
+            Debug.LogError("Material no asignado.");
+        }
     }
     public override void OnStartClient() 
     {
