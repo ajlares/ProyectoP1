@@ -100,6 +100,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
   m_PrefabInstance: {fileID: 6235510822993049969}
   m_PrefabAsset: {fileID: 0}
+--- !u!137 &5884860147137340521 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 514471462265150744, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
+  m_PrefabInstance: {fileID: 6235510822993049969}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6505895924032046112 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
@@ -237,6 +242,7 @@ MonoBehaviour:
   bombPrefab: {fileID: 1542073148672496181, guid: 6198c8d0cfb715744a651312aa9d1c4c, type: 3}
   messagePrefab: {fileID: 6161542203311996046, guid: 859c6f7f3e62bfd4e801486ff07a9727, type: 3}
   anim: {fileID: 0}
+  shader: {fileID: 5884860147137340521}
   NetColor: {r: 0, g: 0, b: 0, a: 0}
   BaseMath: {fileID: 2100000, guid: b8bbf50c56a84204bb91d331c4e9d5e3, type: 2}
 --- !u!65 &-8259112758271120276

@@ -11,6 +11,7 @@ public class PlayerController : NetworkBehaviour
     public GameObject messagePrefab;
     public Animator anim;
     private bool canuseBomb;
+    public Renderer shader;
 
     [SyncVar(hook = nameof(setColor))]
     public Color NetColor;
@@ -58,17 +59,13 @@ public class PlayerController : NetworkBehaviour
     {
         NetColor = newColor;
     }
-
+    [ClientRpc]
     private void setColor(Color oldColor, Color newColor)
     {
-        if(BaseMath !=  null)
-        {
-            BaseMath.SetColor("MainColor",newColor);
-        }
-        else
-        {
-            Debug.LogError("Material no asignado.");
-        }
+
+        MaterialPropertyBlock propertyBlock = new MaterialPropertyBlock();
+        propertyBlock.SetColor("MainColor", newColor);
+        shader.SetPropertyBlock(propertyBlock);
     }
     public override void OnStartClient() 
     {
